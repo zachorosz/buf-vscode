@@ -1,5 +1,9 @@
 # buf-vscode
 
+[buf](https://github.com/bufbuild/buf) integration for Visual Studio Code.
+
+Based mostly on [https://github.com/microsoft/vscode-go](https://github.com/microsoft/vscode-go)
+
 ## Extension Settings
 
 This extension contributes the following settings:
