@@ -7,21 +7,14 @@
     "vscode": "^1.43.0"
   },
   "categories": [
+    "Programming Languages",
     "Linters"
   ],
-  "activationEvents": [
-    "onLanguage:proto"
+  "keywords": [
+    "proto3",
+    "Protocol Buffers"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "languages": [
-      {
-        "id": "proto",
-        "aliases": ["Protobuf", "protobuf"],
-        "extensions": [".proto"]
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
@@ -42,5 +35,49 @@
     "mocha": "^7.0.1",
     "typescript": "^3.7.5",
     "vscode-test": "^1.3.0"
+  },
+  "activationEvents": [
+    "workspaceContains:buf.yaml"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "buf.lint.file",
+        "title": "Buf: Lint File",
+        "description": "Run linter for the Protobuf document in the active editor"
+      },
+      {
+        "command": "buf.lint.workspace",
+        "title": "Buf: Lint Workspace",
+        "description": "Discover all Protobuf files and run them against the configured lint checkers"
+      }
+    ],
+    "configuration": {
+      "title": "Buf",
+      "properties": {
+        "buf.executablePath": {
+          "type": "string",
+          "default": "buf",
+          "description": "Path to the buf executable. By default, it assumes that buf is in your $PATH."
+        },
+        "buf.lintOnSave": {
+          "type":"string",
+          "enum": ["file", "workspace", "off"],
+          "default": "file",
+          "description": ""
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "proto",
+        "aliases": [
+          "Protobuf"
+        ],
+        "extensions": [
+          ".proto"
+        ]
+      }
+    ]
   }
 }
