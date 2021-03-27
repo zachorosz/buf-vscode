@@ -4,6 +4,10 @@
 
 Based mostly on [https://github.com/microsoft/vscode-go](https://github.com/microsoft/vscode-go)
 
+## Archived!
+
+Check out the official extension from bufbuild: [https://github.com/bufbuild/vscode-buf](https://github.com/bufbuild/vscode-buf)
+
 ## Features
 
 ### Linting
